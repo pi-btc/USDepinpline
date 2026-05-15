@@ -1,4 +1,4 @@
-# When_to_Trust_the_Peg
+# When to Trust the Peg
 **λ_ratio: A Potential Real-Time Validation Signal for Anchored Pricing During Stablecoin Stress**
 
 During the October 2025 USDe depeg event, an RMT-derived signal (“λ_ratio”) crossed its theoretical stress threshold approximately 9 hours before Binance formally acknowledged severe depegging conditions.
@@ -57,4 +57,5 @@ This is exploratory research based on a single event, so thresholds should be in
 Happy to hear feedback or criticism.
 
 Full methodology + reproducible code: 
-[GitHub Link]([https://github.com/pi-btc/USDepinpline](https://github.com/pi-btc/USDepinpline/blob/main/When_to_Trust_the_Peg.pdf))
+[GitHub Link](https://github.com/pi-btc/USDepinpline/blob/main/USDepinpline-nov-english.ipynb)
+[GitHub Link](https://github.com/pi-btc/USDepinpline/blob/main/When_to_Trust_the_Peg.pdf)
