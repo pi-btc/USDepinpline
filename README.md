@@ -17,7 +17,7 @@ Instead, the question is:
 Using the correlation matrix of major stablecoins (USDe, USDT, USDC, DAI, FRAX), I compute:
 
 
-$\lambda_{ratio} = \frac{\lambda_{observed}}{\lambda_{Marchenko–Pastur \ upper\ bound}}$
+$$\lambda_{ratio} = \frac{\lambda_{observed}}{\lambda_{Marchenko–Pastur \ upper\ bound}}$$
 
 
 
