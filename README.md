@@ -35,7 +35,7 @@ Interpretation:
 
 - Sep 15 – Oct 9: λ_ratio remained stable around 0.84–0.99
 - Oct 10 12:00 UTC: first crossed 1.0
-- ~9h later: Binance formally acknowledged severe depeg conditions
+- ~9h hours before Binance's official depag onset time (21:36 UTC)
 - Oct 11–25: remained elevated around 1.2+
 - After Oct 26: reverted below 1.0
 
