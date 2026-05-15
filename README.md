@@ -17,7 +17,7 @@ Instead, the question is:
 Using the correlation matrix of major stablecoins (USDe, USDT, USDC, DAI, FRAX), I compute:
 
 
-$\lambda_{ratio} = \frac{\lambda_{observed}}{\lambda_{MP\ upper\ bound}}$
+$\lambda_{ratio} = \frac{\lambda_{observed}}{\lambda_{Marchenko–Pastur \ upper\ bound}}$
 
 
 
@@ -56,4 +56,5 @@ This is exploratory research based on a single event, so thresholds should be in
 
 Happy to hear feedback or criticism.
 
-Full methodology + reproducible code: [GitHub Link]https://github.com/pi-btc/USDepinpline/blob/main/When_to_Trust_the_Peg.pdf
+Full methodology + reproducible code: 
+[GitHub Link](https://github.com/pi-btc/USDepinpline)
