@@ -12,7 +12,8 @@ Instead, the question is:
 
 ---
 
-<img width="2084" height="2383" alt="rmt_dashboard_nov" src="https://github.com/user-attachments/assets/82193721-5438-4d36-9e41-3259497c1ba6" />
+<img width="2084" height="2383" alt="rmt_dashboard" src="https://github.com/user-attachments/assets/77836eb9-f6e7-4621-8842-a7be31d1baeb" />
+
 
 
 ### Core Idea
