@@ -12,6 +12,9 @@ Instead, the question is:
 
 ---
 
+<img width="2084" height="2383" alt="rmt_dashboard_nov" src="https://github.com/user-attachments/assets/82193721-5438-4d36-9e41-3259497c1ba6" />
+
+
 ### Core Idea
 
 Using the correlation matrix of major stablecoins (USDe, USDT, USDC, DAI, FRAX), I compute:
