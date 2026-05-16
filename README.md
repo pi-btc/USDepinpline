@@ -58,7 +58,7 @@ This is exploratory research based on a single event. Thresholds should be treat
 
 Happy to hear feedback or criticism.
 
-Full methodology *[GitHub Link](https://github.com/pi-btc/USDepinpline/blob/main/When_to_Trust_the_Peg.pdf)*
++ Full methodology *[GitHub Link](https://github.com/pi-btc/USDepinpline/blob/main/When_to_Trust_the_Peg.pdf)*
 + reproducible code
 *[GitHUb Link](https://github.com/pi-btc/USDepinpline/blob/main/USDepinpline-nov-english.ipynb)*
  
