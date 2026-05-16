@@ -12,9 +12,9 @@ The motivation is not to challenge Aave's anchored pricing decision — isolatin
 
 Using the correlation matrix of five stablecoins (USDe, USDT, USDC, DAI, FRAX):
 
-```
+
 $$λ_ratio = λ_observed / λ_MP_upper_bound$$
-```
+
 
 where the denominator is the Marchenko-Pastur theoretical upper bound for a pure-noise matrix.
 
@@ -46,7 +46,9 @@ The two signals serve complementary roles:
 - **λ_ratio**: forward-looking gate — *is there a genuine common stress factor?* (fires 9.6h before official confirmation)
 - **LOO projected loading**: backward-looking diagnostic — *which asset is the source?* (confirms USDe as idiosyncratic driver, rules out contagion)
 
----
+---<img width="2084" height="2383" alt="rmt_dashboard_nov" src="https://github.com/user-attachments/assets/49327a44-337c-4486-8a11-0603da2a909c" />
+
+
 
 **Why This Might Be Useful**
 
@@ -56,6 +58,7 @@ This is exploratory research based on a single event. Thresholds should be treat
 
 Happy to hear feedback or criticism.
 
-Full methodology + reproducible code: *[GitHub Link](https://github.com/pi-btc/USDepinpline/blob/main/When_to_Trust_the_Peg.pdf)*
+Full methodology + reproducible code: 
+*[GitHub Link](https://github.com/pi-btc/USDepinpline/blob/main/When_to_Trust_the_Peg.pdf)*
 
 *[GitHUb Link](https://github.com/pi-btc/USDepinpline/blob/main/USDepinpline-nov-english.ipynb)*
