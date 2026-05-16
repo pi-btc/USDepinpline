@@ -13,7 +13,7 @@ The motivation is not to challenge Aave's anchored pricing decision — isolatin
 Using the correlation matrix of five stablecoins (USDe, USDT, USDC, DAI, FRAX):
 
 
-$$λ_ratio = λ_observed / λ_MP_upper_bound$$
+$$λ_{ratio} = λ_{observed} / λ_{MP_upper_bound}$$
 
 
 where the denominator is the Marchenko-Pastur theoretical upper bound for a pure-noise matrix.
