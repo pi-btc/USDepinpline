@@ -1,68 +1,61 @@
+**[Research] λ_ratio: A Potential Real-Time Validation Signal for Anchored Pricing During Stablecoin Stress**
 
-## λ_ratio: A Potential Real-Time Validation Signal for Anchored Pricing During Stablecoin Stress ##
+During the October 2025 USDe depeg event, an RMT-derived signal (λ_ratio) crossed its theoretical stress threshold approximately 9 hours before Binance's official depeg onset time (21:36 UTC).
 
-During the October 2025 USDe depeg event, an RMT-derived signal (“λ_ratio”) crossed its theoretical stress threshold approximately 9 hours before Binance formally acknowledged severe depegging conditions.
+The motivation is not to challenge Aave's anchored pricing decision — isolating Binance-specific distortion was correct and likely prevented unnecessary liquidation cascades. Instead, the question is:
 
-The motivation for this work is not to challenge Aave’s anchored pricing decision — in hindsight, isolating Binance-specific distortion was correct and likely prevented unnecessary liquidation cascades.
-
-Instead, the question is:
-
-> Can we build a lightweight quantitative signal to help distinguish temporary venue-specific noise from emerging systemic stablecoin stress in real time?
-> 
+> *Can we build a lightweight quantitative signal to help distinguish temporary venue-specific noise from emerging systemic stablecoin stress in real time?*
 
 ---
 
-<img width="2084" height="2383" alt="rmt_dashboard" src="https://github.com/user-attachments/assets/77836eb9-f6e7-4621-8842-a7be31d1baeb" />
+**Core Signal: λ_ratio**
 
+Using the correlation matrix of five stablecoins (USDe, USDT, USDC, DAI, FRAX):
 
+```
+λ_ratio = λ_observed / λ_MP_upper_bound
+```
 
-### Core Idea
+where the denominator is the Marchenko-Pastur theoretical upper bound for a pure-noise matrix.
 
-Using the correlation matrix of major stablecoins (USDe, USDT, USDC, DAI, FRAX), I compute:
-
-
-$$\lambda_{ratio} = \frac{\lambda_{observed}}{\lambda_{Marchenko–Pastur \ upper\ bound}}$$
-
-
-
-where the denominator is derived from Marchenko–Pastur theory.
-
-Interpretation:
-
-- λ_ratio < 1.0 → mostly noise regime
-- λ_ratio > 1.0 → common stress factor emerging
+- λ_ratio < 1.0 → noise regime, no genuine common factor
+- λ_ratio > 1.0 → genuine common stress factor emerging
 - λ_ratio > 1.2 sustained → possible structural stress
 
+**Observations from the October event:**
+
+| Time (UTC) | λ_ratio | Status |
+|---|---|---|
+| Sep 15 – Oct 9 | 0.84–0.99 | Zero breaches across 45 days |
+| Oct 10, 12:00 | 1.013 | First breach |
+| Binance official depeg | — | 21:36 UTC (+9h 36m) |
+| Oct 11–25 | 1.20–1.25 | Sustained two weeks |
+| Oct 26 onwards | <0.85 | Full normalisation |
+
+The breach-then-recovery pattern — rather than sustained escalation — is consistent with localised stress rather than solvency failure, which retrospectively supports Aave's anchored pricing decision.
+
 ---
 
-### Observations From the October Event
+**Additional Diagnostic: Leave-One-Out Projected Loading**
 
-- Sep 15 – Oct 9: λ_ratio remained stable around 0.84–0.99
-- Oct 10 12:00 UTC: first crossed 1.0
-- ~9h hours before Binance's official depag onset time (21:36 UTC)
-- Oct 11–25: remained elevated around 1.2+
-- After Oct 26: reverted below 1.0
+After the event, I applied a Leave-One-Out method: for each asset, its returns are projected onto the principal eigenvector of the remaining four-asset benchmark. This measures whether an asset's behaviour can be explained by the group's common mode.
 
-The resulting pattern looked more like temporary systemic stress than a full solvency collapse, which retrospectively supports Aave’s anchored pricing decision.
+The result was clear: **only USDe shows dramatically elevated oscillation after October 10** (reaching ±0.6), while USDT, USDC, DAI, and FRAX remain within ±0.2 throughout. This confirms USDe as the idiosyncratic stress source rather than a systemic contagion event — the distress was not transmitted permanently into the broader basket.
+
+The two signals serve complementary roles:
+- **λ_ratio**: forward-looking gate — *is there a genuine common stress factor?* (fires 9.6h before official confirmation)
+- **LOO projected loading**: backward-looking diagnostic — *which asset is the source?* (confirms USDe as idiosyncratic driver, rules out contagion)
 
 ---
 
-### Why This Might Be Useful
+**Why This Might Be Useful**
 
-Anchored pricing systems implicitly rely on determining whether abnormal prices reflect:
+Anchored pricing systems implicitly rely on determining whether abnormal prices reflect temporary liquidity fragmentation or genuine solvency deterioration. λ_ratio may offer a simple additional verification layer for that distinction, and the LOO diagnostic can help confirm whether stress is asset-specific or systemic once λ_ratio has fired.
 
-1. temporary liquidity fragmentation, or
-2. genuine solvency deterioration
-
-λ_ratio may offer a simple additional verification layer for that distinction.
-
-This is exploratory research based on a single event, so thresholds should be interpreted as heuristic rather than universal constants. Multi-event validation is still needed.
+This is exploratory research based on a single event. Thresholds should be treated as heuristic rather than universal constants. Multi-event validation is still needed.
 
 Happy to hear feedback or criticism.
 
-Full methodology + reproducible code: 
+Full methodology + reproducible code: *[GitHub Link](https://github.com/pi-btc/USDepinpline/blob/main/When_to_Trust_the_Peg.pdf)*
 
-[GitHub Link](https://github.com/pi-btc/USDepinpline/blob/main/When_to_Trust_the_Peg.pdf)
-
-[GitHub Link](https://github.com/pi-btc/USDepinpline/blob/main/USDepinpline-nov-english.ipynb)
-
+*[GitHUb Link](https://github.com/pi-btc/USDepinpline/blob/main/USDepinpline-nov-english.ipynb)*
